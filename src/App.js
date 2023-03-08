@@ -1,19 +1,23 @@
 
 import './App.css';
-import { User } from './User';
+// import { User } from './User';
+import { Planet } from './Planet';
 
 function App() {
-  const users = [
-    { name: "Samuel", age:30 },
-    { name: "Debby", age: 28 },
-    { name: "Josh", age: 27 },
+  const planets = [
+    { name: "Mars", isGasPlanet:false },
+    { name: "Earth", isGasPlanet: false },
+    { name: "Jupiter", isGasPlanet: true },
+    { name: "Venus", isGasPlanet: false },
+    { name: "Neptune", isGasPlanet: true },
+    { name: "Uranus", isGasPlanet: true },
   ];
 
   return (
     <div className="App">
       
-        {users.map((user,key) => {
-          return  <User name={user.name} age={user.age} />
+        {planets.map((planet,key) => {
+          return  <Planet name={planet.name} isGasPlanet={planet.isGasPlanet} />
         })}
       
     </div>
