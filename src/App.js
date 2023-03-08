@@ -1,5 +1,6 @@
 
 import './App.css';
+import { User } from './User';
 
 function App() {
   const users = [
@@ -19,9 +20,7 @@ function App() {
   );
 }
 
-const User = (props) => {
-  return <div>{props.name} {props.age}</div>;
-}
+
 
 
 
