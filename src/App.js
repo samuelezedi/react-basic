@@ -5,15 +5,14 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
- const [inputValue, setInputValue] = useState("");
- const handleInputChange = (event) => {
-  setInputValue(event.target.value);
-  console.log(event.target.value);
- }
+ const [showText, setShowText] = useState(false);
+  const handleShowText = () => {
+    setShowText(!showText);
+  }
   return (
     <div className="App">
-      <input type="text" onChange={handleInputChange} />
-      {inputValue}
+      <button onClick={handleShowText}>Show/Hide</button>
+      {showText===true && <h1> MY NAME IS SAMUEL</h1>}
     </div>
   );
 }
