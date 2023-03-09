@@ -5,14 +5,23 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
- const [textColor, setTextColor] = useState("black");
-  const handleTextColor = () => {
-    setTextColor(textColor === "black"?"red":"black");
+ let [count, setCount] = useState(0);
+  const decrease = () => {
+    setCount(count-1);
+  }
+  const increase = () => {
+    setCount(count+1);
+  }
+  const zero = () => {
+    setCount(0);
   }
   return (
     <div className="App">
-      <button onClick={handleTextColor}>Change Color</button>
-      <h1 style={{color:textColor}}>MY NAME IS SAMUEL</h1>
+      <button onClick={increase}>Increase</button>
+      <button onClick={decrease}>Decrease</button>
+      <button onClick={zero}>Set to zero</button>
+
+      {count}
     </div>
   );
 }
