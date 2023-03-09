@@ -5,7 +5,7 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
- let [count, setCount] = useState(0);
+ const [count, setCount] = useState(0);
   const decrease = () => {
     setCount(count-1);
   }
