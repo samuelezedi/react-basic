@@ -5,14 +5,14 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
- const [showText, setShowText] = useState(false);
-  const handleShowText = () => {
-    setShowText(!showText);
+ const [textColor, setTextColor] = useState("black");
+  const handleTextColor = () => {
+    setTextColor(textColor === "black"?"red":"black");
   }
   return (
     <div className="App">
-      <button onClick={handleShowText}>Show/Hide</button>
-      {showText===true && <h1> MY NAME IS SAMUEL</h1>}
+      <button onClick={handleTextColor}>Change Color</button>
+      <h1 style={{color:textColor}}>MY NAME IS SAMUEL</h1>
     </div>
   );
 }
