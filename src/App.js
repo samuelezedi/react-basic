@@ -1,7 +1,7 @@
 
 import './App.css';
 // import { User } from './User';
-// import { Planet } from './Planet';
+import { Task } from './Task';
 import { useState } from 'react';
 
 function App() {
@@ -15,7 +15,8 @@ function App() {
   const handleTodoList = () => {
     const task = {
       id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
-      taskName: newTask
+      taskName: newTask,
+      completed: false
     };
     const newTodoList = [...todoList,task];
     setTodoList(newTodoList);
@@ -28,6 +29,16 @@ function App() {
     setTodoList(newTodoList);
   }
 
+  const updateTask = (id) => {
+    const newTodoList = todoList.map((task) => {
+      if(id === task.id) {
+        return {...task, completed:true}
+      }
+      return task;
+    });
+    setTodoList(newTodoList);
+  }
+
   return (
     <div className="App">
       <div className="inputs">
@@ -36,10 +47,7 @@ function App() {
       </div>
       <div className="list">
         {todoList.map((task, key) => {
-          return <div>
-            <h1>{task.taskName}</h1>
-            <button onClick={() => deleteTask(task.id)}> X </button>
-          </div> 
+          return <Task taskName={task.taskName} id={task.id} completed={task.completed} deleteTask={deleteTask} updateTask={updateTask} />
         })}
       </div>
     </div>
